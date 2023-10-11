@@ -19,12 +19,14 @@
 
         @if (request()->get('tahun'))
         <a target="_blank" class="btn btn-secondary" href="http://tes-web.landa.id/intermediate/menu" role="button">JSON
-          Menu</a>
+          Menu
+        </a>
         <a target="_blank" class="btn btn-secondary" href="http://tes-web.landa.id/intermediate/menu" role="button">JSON
-          Transaksi</a>
+          Transaksi
+        </a>
         <a target="_blank" class="btn btn-secondary" href="http://tes-web.landa.id/intermediate/menu"
-          role="button">Download
-          Example</a>
+          role="button">Download Example
+        </a>
         @endif
       </form>
 
@@ -63,83 +65,19 @@
             @foreach ($foodsList as $item)
             <tr>
               <td>{{ $item->menu }}</td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 1))
-                {{ number_format($transaksiList[$item->menu][1], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 2))
-                {{ number_format($transaksiList[$item->menu][2], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 3))
-                {{ number_format($transaksiList[$item->menu][3], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 4))
-                {{ number_format($transaksiList[$item->menu][4], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 5))
-                {{ number_format($transaksiList[$item->menu][5], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 6))
-                {{ number_format($transaksiList[$item->menu][6], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 8))
-                {{ number_format($transaksiList[$item->menu][8], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 8))
-                {{ number_format($transaksiList[$item->menu][8], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 9))
-                {{ number_format($transaksiList[$item->menu][9], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 10))
-                {{ number_format($transaksiList[$item->menu][10], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 11))
-                {{ number_format($transaksiList[$item->menu][11], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 12))
-                {{ number_format($transaksiList[$item->menu][12], 0) }}
-                @endif
-              </td>
+              @for ($i = 1; $i <= 12; $i++) 
+                <td class="text-end">
+                  @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
+                  $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == $i))
+                    {{ number_format($transaksiList[$item->menu][$i], 0) }}
+                  @endif
+                </td>
+              @endfor
               <td class="text-end">
                 @if ($transaksiList->contains(fn ($value, $key) => $key == $item->menu))
-                <b>{{ number_format($transaksiList[$item->menu]->sum()) }}</b>
+                  <b>{{ number_format($transaksiList[$item->menu]->sum()) }}</b>
                 @else
-                <b>0</b>
+                  <b>0</b>
                 @endif
               </td>
             </tr>
@@ -153,83 +91,19 @@
             @foreach ($drinksList as $item)
             <tr>
               <td>{{ $item->menu }}</td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 1))
-                {{ number_format($transaksiList[$item->menu][1], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 2))
-                {{ number_format($transaksiList[$item->menu][2], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 3))
-                {{ number_format($transaksiList[$item->menu][3], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 4))
-                {{ number_format($transaksiList[$item->menu][4], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 5))
-                {{ number_format($transaksiList[$item->menu][5], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 6))
-                {{ number_format($transaksiList[$item->menu][6], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 7))
-                {{ number_format($transaksiList[$item->menu][7], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 8))
-                {{ number_format($transaksiList[$item->menu][8], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 9))
-                {{ number_format($transaksiList[$item->menu][9], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 10))
-                {{ number_format($transaksiList[$item->menu][10], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 11))
-                {{ number_format($transaksiList[$item->menu][11], 0) }}
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
-                $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == 12))
-                {{ number_format($transaksiList[$item->menu][12], 0) }}
-                @endif
-              </td>
+              @for ($i = 1; $i <= 12; $i++) 
+                <td class="text-end">
+                  @if ($transaksiList->contains(fn($value, $key) => $key == $item->menu) &&
+                  $transaksiList[$item->menu]->contains(fn ($value, $key) => $key == $i))
+                    {{ number_format($transaksiList[$item->menu][$i], 0) }}
+                  @endif
+                </td>
+              @endfor
               <td class="text-end">
                 @if ($transaksiList->contains(fn ($value, $key) => $key == $item->menu))
-                <b>{{ number_format($transaksiList[$item->menu]->sum()) }}</b>
+                  <b>{{ number_format($transaksiList[$item->menu]->sum()) }}</b>
                 @else
-                <b>0</b>
+                  <b>0</b>
                 @endif
               </td>
             </tr>
@@ -241,66 +115,13 @@
               <td>
                 <b>Total</b>
               </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 1))
-                <b>{{ number_format($transaksiPerMonth[1], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 2))
-                <b>{{ number_format($transaksiPerMonth[2], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 3))
-                <b>{{ number_format($transaksiPerMonth[3], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 4))
-                <b>{{ number_format($transaksiPerMonth[4], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 5))
-                <b>{{ number_format($transaksiPerMonth[5], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 6))
-                <b>{{ number_format($transaksiPerMonth[6], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 7))
-                <b>{{ number_format($transaksiPerMonth[7], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 8))
-                <b>{{ number_format($transaksiPerMonth[8], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 9))
-                <b>{{ number_format($transaksiPerMonth[9], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 10))
-                <b>{{ number_format($transaksiPerMonth[10], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 11))
-                <b>{{ number_format($transaksiPerMonth[11], 0) }}</b>
-                @endif
-              </td>
-              <td class="text-end">
-                @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == 12))
-                <b>{{ number_format($transaksiPerMonth[12], 0) }}</b>
-                @endif
-              </td>
+              @for ($i = 1; $i <= 12; $i++)
+                <td class="text-end">
+                  @if ($transaksiPerMonth->contains(fn ($value, $key) => $key == $i))
+                    <b>{{ number_format($transaksiPerMonth[$i], 0) }}</b>
+                  @endif
+                </td>
+              @endfor
               <td class="text-end">
                 <b>{{ number_format($transaksiPerMonth->sum(), 0) }}</b>
               </td>
